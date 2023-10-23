@@ -8,3 +8,39 @@ Revisa tu trabajo robando tres cartas e imprimiendo la mano del jugador en la co
 Dale al Jugador un método de descarte que descarta la Carta en el índice especificado de la mano del jugador y devuelve esa Carta o null si el índice no existe.​
 Revisa tu trabajo imprimiendo la mano del Jugador después de ejecutar el método de descarte.​
 */
+namespace BarajaDeCartas
+{
+
+    public class Jugador
+    {
+        public string nombre { get; set; }
+        public List<Carta> mano { get; set; }
+        public Jugador(string Nombre)
+        {
+            nombre = Nombre;
+            mano = new List<Carta>();
+        }
+        public Carta Robo(Mazo mazo)
+        {
+            Carta tomarCarta = mazo.MasAlta();
+            mano.Add(tomarCarta);
+            return tomarCarta;
+        }
+
+        public Carta? Descartar(int idx)
+        {
+            if (idx < 0 || idx > mano.Count)
+            {
+                Console.WriteLine("");
+                return null;
+            }
+            else
+            {
+                Carta eliminar = mano[idx];
+                mano.RemoveAt(idx);
+                return eliminar;
+            }
+
+        }
+    }
+}

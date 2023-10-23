@@ -12,11 +12,17 @@ namespace BarajaDeCartas
     {
         public string? nombre { get; set; }
         public string? pinta { get; set; }
-        public string? val { get; set; }
+        public int val { get; set; }
 
         public void ImprimeInformacion()
         {
             Console.WriteLine($"Nombre: {nombre} Valor: {val} Pinta {pinta}");
+        }
+        public Carta(string Nombre, string Pinta, int Val)
+        {
+            nombre = Nombre;
+            pinta = Pinta;
+            val = Val;
         }
     }
 }
